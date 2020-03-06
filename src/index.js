@@ -4,10 +4,11 @@ import { css, jsx } from '@emotion/core';
 
 const LiquidButton = props => {
   const {
-    // filled = false,
     speed = 0.5,
     color = 'red',
-    children
+    width = '200px',
+    children,
+    ...rest
   } = props;
 
   const style = css`
@@ -21,8 +22,8 @@ const LiquidButton = props => {
       position: absolute;
       top: -80px;
       left: 0;
-      width: 200px;
-      height: 200px;
+      width: ${width};
+      height: ${width};
       background: ${color};
       box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
       transition: ${speed}s;
@@ -84,7 +85,7 @@ const LiquidButton = props => {
   `;
 
   return (
-    <button {...props} css={style}>
+    <button {...rest} css={style}>
       <span className="text">
         {children}
       </span>
